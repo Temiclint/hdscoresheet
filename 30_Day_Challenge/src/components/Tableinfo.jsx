@@ -17,6 +17,8 @@ import {
 } from "@/components/ui/pagination";
 import { Underline } from "lucide-react";
 import MainData from "./MainData";
+import { Input } from "./ui/input";
+import SearchIcon from "./SearchIcon";
 
 const challenges = [
 	{
@@ -176,7 +178,6 @@ const challenges = [
 		totalEarnings: 0,
 	},
 ];
-	
 
 const Tableinfo = () => {
 	const rowsPerPage = 5;
@@ -184,9 +185,17 @@ const Tableinfo = () => {
 	const [endIndex, setEndIndex] = useState(rowsPerPage);
 	return (
 		<>
-			<div className="container mb-20">
+			<div className="container mb-20 flex flex-col items-center gap-6">
+				<div className="flex items-center w-full max-w-lg space-x-2 rounded-lg border border-gray-300 bg-gray-50 dark:bg-gray-900 px-2 py-2">
+					<SearchIcon className="h-4 w-4" />
+					<Input
+						type="search"
+						placeholder="Search"
+						className="w-full border-0 h-8 font-semibold"
+					/>
+				</div>
+
 				<Table className="rounded-xl">
-            
 					<TableHeader className="bg-primary rounded-xl  hover:bg-none">
 						<TableRow>
 							<TableHead className="w-[150px] text-left">Name</TableHead>
@@ -204,7 +213,9 @@ const Tableinfo = () => {
 					</TableHeader>
 					<TableBody>
 						{challenges.slice(startIndex, endIndex).map((challenge) => (
-							<TableRow className= {challenges.index === 0 ? "bg-primary" : undefined} key={challenge.name}>
+							<TableRow
+								className={challenges.index === 0 ? "bg-primary" : undefined}
+								key={challenge.name}>
 								<TableCell className="text-left">{challenge.name}</TableCell>
 								<TableCell>{challenge.totalPoint}</TableCell>
 								<TableCell>{challenge.upwork}</TableCell>
@@ -221,9 +232,9 @@ const Tableinfo = () => {
 					</TableBody>
 				</Table>
 
-				<Pagination >
+				<Pagination>
 					<PaginationContent>
-						<PaginationItem >
+						<PaginationItem>
 							<PaginationPrevious
 								className={
 									startIndex === 0
@@ -237,13 +248,19 @@ const Tableinfo = () => {
 							/>{" "}
 						</PaginationItem>
 
-            <PaginationItem >
-              <PaginationNext className={endIndex === challenges.length ? "pointer-events-none opacity-50" : undefined}
-              onClick={() => {
-                setStartIndex(startIndex + rowsPerPage);
-                setEndIndex(endIndex + rowsPerPage);
-              }} />
-            </PaginationItem>
+						<PaginationItem>
+							<PaginationNext
+								className={
+									endIndex === challenges.length
+										? "pointer-events-none opacity-50"
+										: undefined
+								}
+								onClick={() => {
+									setStartIndex(startIndex + rowsPerPage);
+									setEndIndex(endIndex + rowsPerPage);
+								}}
+							/>
+						</PaginationItem>
 					</PaginationContent>
 				</Pagination>
 			</div>

@@ -8,7 +8,7 @@ const JoinSection = () => {
     <p className="text-primary font-bold text-base">
     New to Halal Dollars $500 in 30 Days Challenge?  
     </p>
-    <h1 className="text-primary font-semibold text-5xl ">
+    <h1 className="text-center text-primary font-semibold text-5xl ">
     Join the Community to Get Started
     </h1>
     <p className="text-[#475467] text-[20px] leading-8">
