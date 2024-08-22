@@ -2,18 +2,20 @@ import DailyTask from "./components/DailyTask"
 import MainData from "./components/MainData"
 import JoinSection from "./components/JoinSection"
 import Register from "./components/Register"
-
+import Home from "./components/home"
 
 function App() {
  
   return (
     <>
-    <MainData />
+    <Home />
+    {/* <MainData />
     <DailyTask />
     <JoinSection />
-    <Register />
+    <Register /> */}
     </>
   )
 }
 
 export default App
+   

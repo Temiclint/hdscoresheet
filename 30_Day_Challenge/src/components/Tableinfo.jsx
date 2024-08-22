@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState , useEffect} from "react";
 import {
 	Table,
 	TableBody,
@@ -18,7 +18,7 @@ import {
 import { Underline } from "lucide-react";
 import MainData from "./MainData";
 import { Input } from "./ui/input";
-import SearchIcon from "./SearchIcon";
+import Search from "./Search";
 
 const challenges = [
 	{
@@ -179,22 +179,54 @@ const challenges = [
 	},
 ];
 
-const Tableinfo = () => {
+const Tableinfo = ({ user }) => {
 	const rowsPerPage = 5;
 	const [startIndex, setStartIndex] = useState(0);
 	const [endIndex, setEndIndex] = useState(rowsPerPage);
-	return (
-		<>
-			<div className="container mb-20 flex flex-col items-center gap-6">
-				<div className="flex items-center w-full max-w-lg space-x-2 rounded-lg border border-gray-300 bg-gray-50 dark:bg-gray-900 px-2 py-2">
-					<SearchIcon className="h-4 w-4" />
-					<Input
-						type="search"
-						placeholder="Search"
-						className="w-full border-0 h-8 font-semibold"
-					/>
-				</div>
 
+
+	// const [users, setUsers] = useState([]);
+
+	// useEffect (()=>{
+	// 	const fetchUsers = async () => {
+	// 		const response = await fetch('http://localhost:3000/api/Users/getAll');
+			
+	// 		const users = (await response.json());
+
+	// 		// if (response.ok) {
+	// 		// setUsers(json)
+	// 		// }
+	// 		setUsers(users)
+		
+	// 		};
+
+	// 		fetchUsers();
+	// }, []);
+
+
+	// useEffect (()=>{
+
+	// 	const fetchUsers = async () ={
+			
+	// 		try {
+	// 			const data = (await axios.get('api/Users/getAll')).data
+	// 		setUsers(data)
+	// 		} catch (error) {
+	// 			console.log(error)
+	// 		}
+	// 	}
+	// }, [])
+	
+
+	return (
+		
+		<>
+{/* 			
+			{users.slice(startIndex, endIndex).map((user) => {
+				return 
+				<div key={user.id} user={user}className="container mb-20 flex flex-col items-center gap-6" > */}
+				<div classname="container mb-20 flex flex-col items-center gap-6"> 
+				<Search/>
 				<Table className="rounded-xl">
 					<TableHeader className="bg-primary rounded-xl  hover:bg-none">
 						<TableRow>
@@ -212,27 +244,28 @@ const Tableinfo = () => {
 						</TableRow>
 					</TableHeader>
 					<TableBody>
-						{challenges.slice(startIndex, endIndex).map((challenge) => (
-							<TableRow
-								className={challenges.index === 0 ? "bg-primary" : undefined}
-								key={challenge.name}>
-								<TableCell className="text-left">{challenge.name}</TableCell>
-								<TableCell>{challenge.totalPoint}</TableCell>
-								<TableCell>{challenge.upwork}</TableCell>
-								<TableCell>{challenge.socialMediaPost}</TableCell>
-								<TableCell>{challenge.socialMediaEngagement}</TableCell>
-								<TableCell>{challenge.jobApplication}</TableCell>
-								<TableCell>{challenge.localOutreach}</TableCell>
-								<TableCell>{challenge.internationalOutreach}</TableCell>
-								<TableCell>{challenge.ecommerceOrders}</TableCell>
-								<TableCell>{challenge.numberOfClients}</TableCell>
-								<TableCell>{challenge.totalEarnings}</TableCell>
+					
+					 <TableRow
+								className= {user.index === 0 ? "bg-primary" : undefined}
+								>
+								<TableCell className="text-left">{user.firstname}</TableCell>
+								<TableCell>{user.totalPoints}</TableCell>
+								<TableCell>{user.upworkOut}</TableCell>
+								<TableCell>{user.socialPost}</TableCell>
+								<TableCell>{user.socialEngage}</TableCell>
+								<TableCell>{user.jobApp}</TableCell>
+								<TableCell>{user.localOut}</TableCell>
+								<TableCell>{user.intOut}</TableCell>
+								<TableCell>{user.ecommerce}</TableCell>
+								<TableCell>{user.Clients}</TableCell>
+								<TableCell>{user.earnings}</TableCell>
 							</TableRow>
-						))}
+					
 					</TableBody>
 				</Table>
+			
 
-				<Pagination>
+	<Pagination>
 					<PaginationContent>
 						<PaginationItem>
 							<PaginationPrevious
@@ -263,7 +296,9 @@ const Tableinfo = () => {
 						</PaginationItem>
 					</PaginationContent>
 				</Pagination>
+					
 			</div>
+				{/* // })} */}
 		</>
 	);
 };
