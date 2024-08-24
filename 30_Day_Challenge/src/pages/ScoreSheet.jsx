@@ -1,10 +1,13 @@
-import React from 'react'
+
 import MainData from '@/components/MainData'
+import Tableinfo from '@/components/Tableinfo'
 
 const ScoreSheet = () => {
   return (
-    <div className='bg-secondary'>
+    <div >
         <MainData />
+        <Tableinfo />
+        
     </div>
   )
 }

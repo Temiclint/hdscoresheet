@@ -3,7 +3,7 @@ import React from 'react'
 
 const RegisterPage = () => {
   return (
-    <div className='bg-secondary'>
+    <div>
         <Register />
     </div>
   )

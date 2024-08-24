@@ -22,17 +22,18 @@ model User{
     funnel String @unique
     medium String @unique
     gohigh String @unique
-    uniqueCode String @unique
-    upworkOut Int?
-    socialPost Int?
-    socialEngage Int?
-    jobApp Int?
-    localOut Int?
-    intOut Int?
-    ecommerce Int?
-    clients Int?
-    earnings Int?
+    phoneNumber String
+    // uniqueCode String @unique
+    upworkOut Int
+    socialPost Int
+    socialEngage Int
+    JobApp Int
+    localOut Int
+    intOut Int
+    ecommerce Int
+    NumOfClients Int
+    totalEarnings Int
     totalPoints Int
-    
+
 }
 

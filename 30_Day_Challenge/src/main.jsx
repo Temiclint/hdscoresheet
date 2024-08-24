@@ -13,7 +13,7 @@ import DailyTaskPage from './pages/DailyTaskPage.jsx'
 
 const Layout =()=>{
   return (
-    <div>
+    <div >
       <Header />
       <Outlet />
       <Footer />

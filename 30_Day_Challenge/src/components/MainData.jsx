@@ -1,4 +1,4 @@
-import Tableinfo from "./Tableinfo"
+// import Tableinfo from "./Tableinfo"
 
 const MainData = () => {
 
@@ -14,7 +14,7 @@ const MainData = () => {
     return (
         <>
         <h3 className="text-primary text-4xl font-semibold py-10 lg:py-8 text-center">{`${monthName} ${year} `}</h3> 
-        <Tableinfo className="pb-100" />
+      
         </>
   )
 }

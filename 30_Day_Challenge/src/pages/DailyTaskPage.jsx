@@ -3,7 +3,7 @@ import React from 'react'
 
 const DailyTaskPage = () => {
   return (
-    <div className='bg-secondary'>
+    <div>
         <DailyTask />
     </div>
   )
